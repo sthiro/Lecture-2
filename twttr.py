@@ -7,5 +7,5 @@ s =  input("Input: ")
 print("Output: ", end="")
 
 for c in s:
-    if c.casefold() not in ["a", "e", "i", "o", "u"]:
+    if c.casefold() not in ["a", "e", "i", "o", "u"]: # Checks whether lower case of each iterated charecter isn't a vowel
         print(c, end="")
