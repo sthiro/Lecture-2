@@ -3,10 +3,12 @@
 #  Machine accepts coins in these denominations: 25 cents, 10 cents, and 5 cents.
 
 ammount_due = 50
+
 while ammount_due > 0:
-    user_input = int(input())
-
+    print("Amount Due:",ammount_due)
+    user_input = int(input("Insert Coin: "))
+    
     if user_input in [25, 10, 5]:
-        ammount_due = 50 - user_input
+        ammount_due = ammount_due - user_input
 
-    print(ammount_due)
+print("Change Owed:",abs(ammount_due))
