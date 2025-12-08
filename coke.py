@@ -7,8 +7,8 @@ ammount_due = 50
 while ammount_due > 0:
     print("Amount Due:",ammount_due)
     user_input = int(input("Insert Coin: "))
-    
+
     if user_input in [25, 10, 5]:
         ammount_due = ammount_due - user_input
 
-print("Change Owed:",abs(ammount_due))
+print("Change Owed:",abs(ammount_due)) #print absolute value of ammount_dew
