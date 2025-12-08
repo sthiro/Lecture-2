@@ -24,7 +24,7 @@ def is_valid(s):
 
 def length_check(plate):
 
-    if 2 <= len(plate) <= 6: #Check length of plate
+    if 2 <= len(plate) <= 6: # Check whether plate is in correct range of length
         return True
     else:
         return False
@@ -40,39 +40,33 @@ def first_2_letter_check(plate):
     
 def no_punctuation_space_check(plate):
 
-    check = True
-    punctuation_space = ["!", "#", "$", "%", "&" , "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";" ,"<" , "=", ">", "?", "@", "[", "]", "^", "`", "{", "|" ,"}", "~",'"'," "]
-    for i in plate:
-        if i in punctuation_space:
-            check = False
-            
-    if check: return True
-    else: return False
+    return plate.isalnum()
 
 def number_middle_check(plate):
-    # Itereate each element in that created list and check whether it contain number or not
+    # Itereate each element in that created list and check whether it contain number or not.
+    # When iterating if there is number check remaining character are number or not
 
     number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
     plate_list = list(plate) # Make new  list 
-    sliced_plate_list = plate_list[2:-1] # Slice it using [2:-1], it doesnt include first, second and last element
+    sliced_plate_list = plate_list[2:-1] # Slice it using [2:-1], it doesnt include first, second and last element. Because we dont need to check that whether it's number or not
 
     for char in sliced_plate_list: # Iterates for each element in the sliced list
 
         if char in number: # Detects number
+            # Note: return => Return value, break the loop and exit the function
                     
             index_for_first_detected_number = plate_list.index(char) # Returns the index of the first occurrence of the detected number. 
             remaining_list = plate_list[index_for_first_detected_number:]
-            remaining_string = "".join(remaining_list) # Joints the remaining list into string
+            remaining_string = "".join(remaining_list) # Joint the remaining list into string
 
             if char == "0": return False # Number starts with 0
             
-            if remaining_string.isdecimal(): #Return True or False by check if number isn't in the middle,  break the loop and function
-                return True # Number is not in middle
+            if remaining_string.isdecimal(): #Return True or False by check if number isn't in the middle
+                return True # Number is not in the middle
             else: 
-                return False #Number is in middle
+                return False #Number is in the middle
 
     return True # Return True if there is no number in the middle 
-
 
 main()
