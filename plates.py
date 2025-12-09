@@ -46,14 +46,12 @@ def number_middle_check(plate):
     # Itereate each element in that created list and check whether it contain number or not.
     # When iterating if there is number check remaining character are number or not
 
-    number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-
     plate_list = list(plate) # Make new  list 
     sliced_plate_list = plate_list[2:-1] # Slice it using [2:-1], it doesnt include first, second and last element. Because we dont need to check that whether it's number or not
 
     for char in sliced_plate_list: # Iterates for each element in the sliced list
 
-        if char in number: # Detects number
+        if char.isdigit(): # Detects number
             # Note: return => Return value, break the loop and exit the function
                     
             index_for_first_detected_number = plate_list.index(char) # Returns the index of the first occurrence of the detected number. 
